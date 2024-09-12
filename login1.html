@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff8a00, #e52e71, #d06e96);
+            background-size: 300% 300%;
+            animation: gradientBG 15s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/geometry.png');
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .glitter-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/white-snow.png');
+            opacity: 0.3;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .login-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            width: 100%;
+            max-width: 380px;
+            z-index: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .login-container h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #f06292;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #c2185b;
+        }
+
+        .invalid-feedback {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-overlay"></div>
+    <div class="glitter-overlay"></div>
+    <div class="container login-container">
+        <h2 class="text-center">Login</h2>
+        <form id="loginForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                <div class="invalid-feedback">
+                    Please enter a username.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <div class="invalid-feedback">
+                    Please enter a password.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for form validation
+        (function () {
+            'use strict';
+
+            var forms = document.querySelectorAll('.needs-validation');
+
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
+</body>
+</html>
